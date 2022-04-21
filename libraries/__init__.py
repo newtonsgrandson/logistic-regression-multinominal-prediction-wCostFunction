@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 
 
-from binaryClassification import *
-from multimonimalClassification import *
+from multinominalClassification import *
 from logisticRegressionCostFunction import LRCF
 

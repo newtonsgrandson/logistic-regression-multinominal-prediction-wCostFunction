@@ -5,7 +5,8 @@ from libraries import *
 
 class LRCF:
     def __init__(self, X = pd.DataFrame, y = pd.Series):
-        self.X = X.values
+        self.X = pd.DataFrame(X)
+        self.X = self.X.values
         self.y = list(y)
         self.X = np.array(self.X)
         self.y = np.array(self.y)
@@ -63,11 +64,8 @@ class LRCF:
     def sigmoid(self, z):
         return 1.0 / (1 + np.exp(-z))
 
-
     def normalize(self, X):
-        sampleLength, featureLength = X.shape
-
-        for i in range(featureLength):
+        for i in range(X.shape[0]):
             X = (X - X.mean(axis = 0)) / X.std(axis = 0)
 
         return X
